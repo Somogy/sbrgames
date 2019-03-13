@@ -1,5 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
+
+// This script controls a five-story elevator, based on the player's request on the floor selection panel.
 
 public class ControllableMechanicalElevator : MonoBehaviour
 {
