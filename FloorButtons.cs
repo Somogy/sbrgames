@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This script checks the interaction of objects by pressing, to manipulate a second game object,
+either by toggling between on and off or just one of two functions */
+
 public class FloorButtons : MonoBehaviour
 {
     // Audio clips for button
