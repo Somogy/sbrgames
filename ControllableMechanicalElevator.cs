@@ -36,7 +36,7 @@ public class ControllableMechanicalElevator : MonoBehaviour
 
     private void Awake()
     {
-		// Taking game components
+	// Taking game components
         elevatorPanel = GameObject.Find("ElevatorPanel");
         panelAnim = GameObject.Find("ElevatorPanel").GetComponent<Animator>();
         transportedObjectTransform = GetComponent<Transform>();
@@ -46,7 +46,7 @@ public class ControllableMechanicalElevator : MonoBehaviour
 
     private void Start ()
     {
-		// Initiating the arrays for transported objectos 
+	// Initiating the arrays for transported objectos 
         transportedName = new string[10];
         transportedObject = new GameObject[10];
 
@@ -62,13 +62,13 @@ public class ControllableMechanicalElevator : MonoBehaviour
 
     private void Update ()
     {
-		// Checking a requesting
+	// Checking a requesting
         if (!requestMade && readyToRequest)
         {
             requestedFloor = elevatorPanel.GetComponent<ElevatorPanel>().requestedFloor; // Getting variable of elevator panel       
         }
 
-		// Determining whether the requested floor is different so that the movement is initiated
+	// Determining whether the requested floor is different so that the movement is initiated
         if (requestedFloor != actualFloor)
         {
             readyToRequest = false;
@@ -93,7 +93,7 @@ public class ControllableMechanicalElevator : MonoBehaviour
     {
         requestMade = false;
     
-		// Checking whether the movement should be negative or positive on the y-axis
+   	    // Checking whether the movement should be negative or positive on the y-axis
 	    if (Time.timeScale != 0)
 		{
 			if (requestedFloor > actualFloor)        
@@ -109,13 +109,13 @@ public class ControllableMechanicalElevator : MonoBehaviour
 			}
 		}
         
-		// Case the game is paused, the moviment is 0
+	// Case the game is paused, the moviment is 0
         if (Time.timeScale == 0)
         {
             movement = 0f;
         }
 
-		// Only actrive in this range
+	// Only actrive in this range
         if (requestedFloor >= 1 && requestedFloor <= 5)
         {
             float[] floors = new float[] { firstFloor, secondFloor, thirdFloor, fourthFloor, fifthFloor }; //cria uma vetor com as coordenadas dos andares
@@ -154,7 +154,7 @@ public class ControllableMechanicalElevator : MonoBehaviour
         }
     }
 
-	// If the collision is over, reversing child object
+    // If the collision is over, reversing child object
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Objects" || collision.gameObject.tag == "Lethal")
@@ -173,7 +173,7 @@ public class ControllableMechanicalElevator : MonoBehaviour
         }
     }
 
-	// Coroutine necessary to correctly handle the sound
+    // Coroutine necessary to correctly handle the sound
     IEnumerator Arrived()
     {
         elevatorAudio.PlayOneShot(stopSound);
