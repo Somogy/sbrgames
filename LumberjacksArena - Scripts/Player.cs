@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
         if (punchDone && alive && GameManager.instance.fight)
         {
             playerColl.offset = new Vector2(0.37f, 0.6021827f);
-            //playerArea.offset = new Vector2(0.6f, 0.4811941f);
             handObject.enabled = true;
             playerAnim.SetBool("Punch", true);
             StartCoroutine(PunchCD());
