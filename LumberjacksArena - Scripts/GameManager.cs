@@ -19,9 +19,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteKey("FirstPlay");
-        //PlayerPrefs.DeleteAll();
-
         instance = this;
         fight = false;
         StartCoroutine(GamePreparation());
