@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class nextElemCheck : MonoBehaviour
+public class NextElemCheck : MonoBehaviour
 {
     public float time;
 
