@@ -8,27 +8,28 @@ public class GameManager : MonoBehaviour
 {
     [Header("Games Panels")]
     [SerializeField]
-    public GameObject introPanel;
+    public GameObject introPanel; //This panel has a start button
 
     [SerializeField]
-    public GameObject gamePanel;
+    public GameObject gamePanel; //This is the main panel for the game, has restart button, back intro button and the questions
 
     [SerializeField]
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel; //This panel is show in the end of the game, with the points and ack intro button
 
     [Space(10)]
     [SerializeField]
-    private GameObject[] questionsGO;
+    private GameObject[] questionsGO; //All questions were asked in gameobjects due to the small amount of them
 
     [Space(10)]
     [Header("Texts")]
     [SerializeField]
-    private Text gameOverPhrase, scoreText;
+    private Text gameOverPhrase, scoreText; //Elements used in the game over panel
 
-    private int actualQuestion, score;
+    private int actualQuestion, score; //Variables to use in game
 
     private void Awake()
     {
+    //Checking which panels should be used
         if (PlayerPrefs.GetInt("Restart") == 1)
         {
             introPanel.SetActive(false);
@@ -45,13 +46,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //Verify when the game is over    
         if (actualQuestion >= questionsGO.Length)
         {
             GameOver();
         }
     }
 
-    // Alternatives Methods Buttons
+    //Method linked in the correct answers
     public void CorrectAnswer()
     {
         score++;
@@ -63,7 +65,8 @@ public class GameManager : MonoBehaviour
         gamePanel.SetActive(true);
         StartCoroutine(StartGameCR());
     }
-
+    
+    //When a alternative of question is selected
     public void SelectedAlternative()
     {
         StartCoroutine(QuestionsTransition());
@@ -93,17 +96,16 @@ public class GameManager : MonoBehaviour
 
         if (score == 5)
         {
-            gameOverPhrase.text = "Parabéns acertou todas!";
+            gameOverPhrase.text = "Congratulations!"; //With all hits, the player is congratulated
         }
 
         else
         {
-            gameOverPhrase.text = "Foi quase!!";
+            gameOverPhrase.text = "Almost there!"; //Else, this
         }
-
-        Debug.Log("Fim de jogo");
     }
-
+    
+    //Animations controllers
     private void QuestionAnimOff()
     {
         if (actualQuestion == 0)
@@ -140,7 +142,8 @@ public class GameManager : MonoBehaviour
 
         QuestionAnimOn();
     }
-
+    
+    //Manipulating the animators in the start game
     private IEnumerator StartGameCR()
     {
         yield return new WaitForSeconds(0.5f);
