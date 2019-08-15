@@ -15,4 +15,6 @@ SUMMARY (by Order)
 
 -FloorButtons.cs: Is a button in the ground, activated by or walking on or throwing heavy objects, thereby activating a second object
 
+-GameManager.cs: Complete script for a very simple event quiz game
+
 -LumberjacksChamber.zip: A fighting game for Windows (this zip loaded) and Android for my participation in notGDCJam 2019
