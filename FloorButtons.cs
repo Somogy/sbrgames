@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,19 +31,48 @@ public class FloorButtons : MonoBehaviour
     private void Awake()
     {
         // Getting components in variables to facilitate the use
-        actualSprite = GetComponent<SpriteRenderer>();
-        buttonAudioSource = GetComponent<AudioSource>();
+        GettingComponents();
     }
     
-    void Start()
+    private void Start()
     {
         // Initiating the number of objects at zero
         elementsOn = 0;
     }
 
-    void Update()
+    private void Update()
     {
         // If one or more other objects are on top of the button, set the activation
+        ObjectsVerify();
+
+        // If the manipulated object is disabled, it must be enabled if the variable indicates otherwise
+        ObjectManipulation();
+    }
+
+    private void GettingComponents ()
+    {
+        actualSprite = GetComponent<SpriteRenderer>();
+        buttonAudioSource = GetComponent<AudioSource>();
+    }
+
+    private void ObjectManipulation()
+    {
+        if (gameobjectDisable)
+        {
+            if (activateObject)
+            {
+                gameobjectDisable.SetActive(false);
+            }
+
+            else
+            {
+                gameobjectDisable.SetActive(true);
+            }
+        }
+    }
+
+    private void ObjectsVerify()
+    {
         if (elementsOn >= 1)
         {
             activateObject = true;
@@ -55,21 +84,6 @@ public class FloorButtons : MonoBehaviour
             activateObject = false;
             actualSprite.sprite = looseSprite;
         }
-
-        // If the manipulated object is disabled, it must be enabled if the variable indicates otherwise
-        if (gameobjectDisable)
-        {
-            if (activateObject)
-            {
-
-                gameobjectDisable.SetActive(false);
-            }
-
-            else
-            {
-                gameobjectDisable.SetActive(true);
-            }
-        }
     }
 
     // Are there objects that are in contact using?
@@ -77,15 +91,11 @@ public class FloorButtons : MonoBehaviour
     {
         if (collision.enabled)
         {
+            elementsOn--;
+
             if (elementsOn == 0)
             {
                 buttonAudioSource.PlayOneShot(heldSound);
-                elementsOn++;
-            }
-
-            else
-            {
-                elementsOn++;
             }
         }
     }
@@ -95,15 +105,11 @@ public class FloorButtons : MonoBehaviour
     {
         if (collision.enabled)
         {
+            elementsOn--;
+
             if (elementsOn == 1)
             {
                 buttonAudioSource.PlayOneShot(looseSound);
-                elementsOn--;
-            }
-
-            else
-            {
-                elementsOn--;
             }
         }
     }
