@@ -5,6 +5,8 @@ This repertoire consists of a few individual codes used in various GameObjects, 
 
 SUMMARY (by Order)
 
+-Endless Runner - Scripts: All scripts created for this game
+
 -LumberjacksArena - Scripts: All scripts created for this game
 
 -Space Escape - Ludum Dare 44 - Scripts: All scripts created for this game of my participation in Ludum Dare 44
