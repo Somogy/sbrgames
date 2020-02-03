@@ -1,4 +1,4 @@
-# sbrgames (The games can be found at this link: http://gamejolt.com/@Nhydrus/games)
+# sbrgames (The games can be found at this link: https://gamejolt.com/@Nhydrus/games)
 Games codes in C# with Unity Engine
 
 This repertoire consists of a few individual codes used in various GameObjects, whether they are playable, interactive, UI or mechanical elements, all from games that I have developed, still developing, test versions or Gamejams that I participate.
