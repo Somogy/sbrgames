@@ -5,6 +5,8 @@ This repertoire consists of a few individual codes used in various GameObjects, 
 
 SUMMARY (by Order)
 
+-Don't RIP in Hell - Ludum Dare 45 - Scripts: All scripts created for this game
+
 -Endless Runner - Scripts: All scripts created for this game
 
 -LumberjacksArena - Scripts: All scripts created for this game
