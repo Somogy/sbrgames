@@ -9,6 +9,8 @@ SUMMARY (by Order)
 
 -Endless Runner - Scripts: All scripts created for this game
 
+-JumpRace-KobGamesTest - All the project made for a test
+
 -LumberjacksArena - Scripts: All scripts created for this game
 
 -Space Escape - Ludum Dare 44 - Scripts: All scripts created for this game of my participation in Ludum Dare 44
